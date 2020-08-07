@@ -1,0 +1,214 @@
+
+:root {
+	--offsetLeft: 0;
+  --offsetTop: 0;
+	--width: 0;
+	box-sizing: border-box;
+}
+
+*, :before, :after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+body, html {
+	background-color: #fff;
+  overflow: hidden;
+  width: 100vw;
+	height: 100vh;
+}
+
+.page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 101%;
+
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.cards-list {
+	padding: 1rem;
+  display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	grid-gap: 1rem;
+  grid-template-rows: repeat(auto-fill,minmax(10rem,1fr));
+}
+
+.card-holder {
+  max-width: calc(100vw - 2rem);
+	margin-bottom: 1.625rem;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.card-head {
+	padding: 1.25rem;
+	height: 15rem;
+	text-shadow: 0 0 .3rem rgba(0, 0, 0, .8);
+	background-position: center;
+	background-size: cover;
+	cursor: pointer;
+	color: #ddd;
+	text-decoration: none;
+
+	overflow: visible;
+	box-shadow: 0 .3125rem .625rem rgba(0, 0, 0, .5);
+	border-radius: .625rem;
+}
+
+a.card-head:hover {
+  color: #fff;
+	box-shadow: 0 .3125rem .625rem rgba(0, 0, 0, 1);
+}
+
+.article-overlay .card-head {
+  color: #fff;
+	min-height: 50vh;
+	transition: all 600ms cubic-bezier(0.18, 0.90, 0.30, 1.2);
+}
+
+.article-overlay.positioned .card-head {
+	min-height: 15rem;
+}
+
+.card-head * {
+	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.card-head .card-head-content {
+	margin: 0 auto;
+	max-width: 40rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.card-head, .card-head h1, .card-head h2 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+}
+
+.article-overlay .close {
+	border: none;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+	background: #ddd;
+	cursor: pointer;
+	position: absolute;
+	right: .625rem;
+	top: .625rem;
+
+	opacity: 1;
+	transition-property: all;
+}
+
+.article-overlay .close:after, .article-overlay .close:before {
+	box-sizing: border-box;
+	position: absolute;
+	display: block;
+	background: #444;
+	content: "";
+
+	left: .25rem;
+	width: 1rem;
+
+	top: .7rem;
+	height: .1rem;
+}
+
+.article-overlay .close:after {
+	transform: rotate(45deg);
+}
+
+.article-overlay .close:before {
+	transform: rotate(-45deg);
+}
+
+.article-overlay, .article-overlay * {
+	transition: all 600ms cubic-bezier(0.18, 0.90, 0.30, 1.2);
+}
+
+.article-overlay {
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition-property: all;
+}
+
+.article-overlay .card {
+	left: 0;
+	top: 0;
+	width: 100%;
+	margin-bottom: -2px;
+}
+
+.article-overlay.positioned {
+	top: var(--offsetTop);
+	left: var(--offsetLeft);
+	width: var(--width);
+}
+
+.article-overlay .card-head {
+	cursor: grab;
+	border-radius: 0;
+	padding-left: 1.875rem;
+	padding-right: 1.875rem;
+	transition-property: all;
+}
+
+.article-overlay.positioned .card-head {
+	border-radius: .625rem;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+
+.article-overlay .card, #article-index .cards-list {
+	min-height: 101%;
+}
+
+.article-overlay .card-article {
+	flex-grow: 1;
+	padding: 1.25rem;
+	opacity: 1;
+	background-color: #fff;
+	transition-property: opacity;
+  line-height: 1.62em;
+}
+
+.article-overlay .card-article p {
+  margin-bottom: 1em;
+}
+
+.article-overlay.positioned .card-article {
+	opacity: 0;
+}
+
+.article-overlay.positioned .close {
+	opacity: 0;
+}
+
+
+#main-container {
+	position: relative;
+	top: 0;
+	height: 100vh;
+}
+
+.card-cover-1 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194723875-drive_h5_pic04%403x.png'); }
+.card-cover-2 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194720178-drive_h5_pic03-2%403x.png'); }
+.card-cover-3 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194718821-drive_h5_pic02%403x.png'); }
+.card-cover-4 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194717856-drive_h5_pic05%403x.png'); }
+.card-cover-5 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194717522-drive_h5_pic03-1%403x.png'); }
+.card-cover-6 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194716058-drive_h5_pic03-4%403x.png'); }
+.card-cover-7 { background-image: url('https://azure-upms.obs.cn-south-1.myhuaweicloud.com/hycan-huaweicloud%2FbackendUpload%2F20200804194717743-drive_h5_pic03-3%403x.png'); }
